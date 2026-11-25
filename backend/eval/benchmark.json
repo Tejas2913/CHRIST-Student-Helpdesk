@@ -1,0 +1,178 @@
+[
+  {
+    "id": "att_1",
+    "category": "factual",
+    "question": "What is the minimum attendance requirement to write end semester examinations?",
+    "expected_pages": [
+      56,
+      93
+    ],
+    "expected_keywords": [
+      "85",
+      "attendance"
+    ]
+  },
+  {
+    "id": "leave_1",
+    "category": "policy",
+    "question": "What is the procedure for applying for leave of absence or medical leave?",
+    "expected_pages": [
+      94
+    ],
+    "expected_keywords": [
+      "leave",
+      "student services",
+      "medical"
+    ]
+  },
+  {
+    "id": "borrow_pg",
+    "category": "table_numeric",
+    "question": "How many books can a PG student borrow?",
+    "expected_pages": [
+      21
+    ],
+    "expected_keywords": [
+      "postgraduate",
+      "4 books",
+      "14 days"
+    ]
+  },
+  {
+    "id": "borrow_fine",
+    "category": "table_numeric",
+    "question": "What is the fine for late return of library books?",
+    "expected_pages": [
+      21
+    ],
+    "expected_keywords": [
+      "fine",
+      "rs",
+      "5",
+      "day"
+    ]
+  },
+  {
+    "id": "exam_elig",
+    "category": "eligibility",
+    "question": "What are the eligibility criteria for semester examinations?",
+    "expected_pages": [
+      56,
+      58
+    ],
+    "expected_keywords": [
+      "attendance",
+      "75",
+      "85",
+      "examination"
+    ]
+  },
+  {
+    "id": "conduct_1",
+    "category": "policy",
+    "question": "What is the student code of conduct at CHRIST University?",
+    "expected_pages": [
+      92,
+      95
+    ],
+    "expected_keywords": [
+      "conduct",
+      "discipline",
+      "misconduct"
+    ]
+  },
+  {
+    "id": "grievance_1",
+    "category": "policy",
+    "question": "How does the student grievance redressal mechanism work at CHRIST?",
+    "expected_pages": [
+      106
+    ],
+    "expected_keywords": [
+      "grievance",
+      "redressal",
+      "committee"
+    ]
+  },
+  {
+    "id": "calendar_1",
+    "category": "date_calendar",
+    "question": "When does the semester commence?",
+    "expected_pages": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "expected_keywords": [
+      "commencement",
+      "semester",
+      "classes"
+    ]
+  },
+  {
+    "id": "multi_1",
+    "category": "multihop",
+    "question": "How many books can a postgraduate student borrow and what is the loan period?",
+    "expected_pages": [
+      21
+    ],
+    "expected_keywords": [
+      "postgraduate",
+      "4 books",
+      "14 days"
+    ]
+  },
+  {
+    "id": "unans_1",
+    "category": "unanswerable",
+    "question": "What is the WiFi password for hostel block C?",
+    "expected_pages": [],
+    "expected_keywords": []
+  },
+  {
+    "id": "unans_2",
+    "category": "unanswerable",
+    "question": "Who won the Nobel Prize in Physics in 2024?",
+    "expected_pages": [],
+    "expected_keywords": []
+  },
+  {
+    "id": "hol_aug",
+    "category": "date_calendar",
+    "question": "What holidays are listed in the academic calendar for August 2026?",
+    "expected_pages": [27],
+    "expected_keywords": ["independence day", "15"]
+  },
+  {
+    "id": "hol_oct",
+    "category": "date_calendar",
+    "question": "What holidays are observed in October 2026 according to the academic calendar?",
+    "expected_pages": [28, 29],
+    "expected_keywords": ["gandhi", "mahanavami", "valmiki"]
+  },
+  {
+    "id": "hol_sep",
+    "category": "date_calendar",
+    "question": "Are there any holidays in September 2026?",
+    "expected_pages": [28],
+    "expected_keywords": ["ganesh", "eid-milad"]
+  },
+  {
+    "id": "hol_nov",
+    "category": "date_calendar",
+    "question": "List the holidays in November 2026.",
+    "expected_pages": [29, 30],
+    "expected_keywords": ["kannada rajyothsava", "deepavali", "kanakadasa"]
+  },
+  {
+    "id": "hol_jan",
+    "category": "date_calendar",
+    "question": "What holidays are scheduled in January 2027?",
+    "expected_pages": [31],
+    "expected_keywords": ["makara sankranti", "republic day", "founder"]
+  }
+]

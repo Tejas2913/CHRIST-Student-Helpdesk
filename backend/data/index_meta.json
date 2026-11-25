@@ -1,0 +1,7 @@
+{
+  "schema_version": "3",
+  "embedding_model": "all-MiniLM-L6-v2",
+  "chunk_size": 900,
+  "chunk_overlap": 120,
+  "pdf_path": "C:\\Users\\hp\\Desktop\\chatbot\\christ-student-helpdesk\\backend\\data\\student_handbook.pdf"
+}

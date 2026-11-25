@@ -1,0 +1,41 @@
+# Environment & Credentials (NEVER COMMIT)
+.env
+*.env
+backend/.env
+frontend/.env
+frontend/.env.local
+*.env.local
+
+# Python Cache & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+
+# SQLite Databases & Local Request Logs
+*.db
+*.db-journal
+*.db-wal
+*.sqlite
+*.sqlite3
+data/analytics.db
+backend/data/analytics.db
+backend/logs/*.jsonl
+*.log
+logs/
+
+# Frontend / Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+experiments/.ipynb_checkpoints/

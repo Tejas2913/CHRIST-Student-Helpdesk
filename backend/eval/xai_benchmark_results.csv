@@ -1,0 +1,17 @@
+query_id,query,retrieved_chunks_count,top_chunk_score,shap_runtime_ms,lime_runtime_ms,spearman_rank_correlation,shap_sparsity,lime_sparsity,lime_local_r2
+1,What is the minimum attendance requirement to write end semester examinations?,3,0.9804,21181.83,98.5,0.3381,1.0,0.25,0.5677
+2,What is the procedure for applying for leave of absence or medical leave?,3,0.7417,100.37,13.13,0.3381,1.0,0.25,0.5517
+3,How many books can a PG student borrow?,3,0.92,90.43,9.2,0.5559,0.875,0.25,0.5302
+4,What is the fine for late return of library books?,3,1.07,95.07,13.17,0.6108,0.75,0.5,0.606
+5,What are the eligibility criteria for semester examinations?,3,1.07,116.59,15.44,-0.6547,1.0,0.375,0.6138
+6,What is the student code of conduct at CHRIST University?,3,0.771,90.11,11.54,0.5768,0.875,0.375,0.5617
+7,How does the student grievance redressal mechanism work at CHRIST?,3,0.7404,142.02,13.44,0.7093,0.875,0.375,0.5869
+8,When does the semester commence?,3,0.8175,150.4,15.01,0.169,1.0,0.375,0.5789
+9,How many books can a postgraduate student borrow and what is the loan period?,3,1.07,135.92,17.92,0.8,0.75,0.375,0.5333
+10,What is the WiFi password for hostel block C?,3,0.5191,201.25,20.05,0.4472,1.0,0.375,0.593
+11,Who won the Nobel Prize in Physics in 2024?,3,0.5514,167.57,10.07,0.8208,0.75,0.25,0.5439
+12,What holidays are listed in the academic calendar for August 2026?,3,1.6917,120.54,11.93,0.6108,0.75,0.375,0.5265
+13,What holidays are observed in October 2026 according to the academic calendar?,3,1.65,103.19,11.48,0.7537,0.625,0.125,0.6369
+14,Are there any holidays in September 2026?,3,1.6,86.52,13.12,0.7783,0.875,0.375,0.6
+15,List the holidays in November 2026.,3,1.5125,79.87,14.18,0.6301,0.75,0.375,0.5941
+16,What holidays are scheduled in January 2027?,3,1.75,103.19,13.13,0.6108,0.75,0.25,0.6062
