@@ -413,11 +413,6 @@ All **20 unit and integration tests** pass with 100% success:
 ## 👨‍💻 Author
 
 **Tejas R M**  
-*AI/ML Engineer & Full-Stack Developer*  
-
-* **GitHub**: [@Tejas2913](https://github.com/Tejas2913)  
-* **Repository**: [CHRIST-Student-Helpdesk](https://github.com/Tejas2913/CHRIST-Student-Helpdesk)  
-* **Portfolio**: [https://tejas-portfolio-pi.vercel.app/](https://tejas-portfolio-pi.vercel.app/)  
 
 ---
 
