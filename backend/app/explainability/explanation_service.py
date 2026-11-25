@@ -191,21 +191,44 @@ def run_shap_lime_comparison(
 ) -> Dict[str, Any]:
     """Run both SHAP and LIME on the same target and produce a comparison report."""
     try:
-        from app.explainability.shap_explainer import get_shap_explainer
+        from app.explainability.shap_explainer import (
+            get_shap_explainer,
+            RETRIEVAL_FEATURE_NAMES,
+            _extract_retrieval_features,
+        )
         from app.explainability.lime_explainer import get_lime_explainer
         from app.explainability.explanation_evaluator import run_comparison
 
         shap_exp = get_shap_explainer()
         lime_exp = get_lime_explainer()
 
+        surrogate_model = None
+        instance = None
+        feature_names = None
+
         if target == "retrieval_relevance":
             shap_result = shap_exp.explain_retrieval(query, chunks)
             lime_result = lime_exp.explain_retrieval(query, chunks)
+            shap_exp._ensure_retrieval_surrogate()
+            surrogate_model = shap_exp._retrieval_surrogate
+            if chunks:
+                X = _extract_retrieval_features(query, chunks)
+                instance = X[0]
+            feature_names = RETRIEVAL_FEATURE_NAMES
         else:
             shap_result = shap_exp.explain_intent(query)
             lime_result = lime_exp.explain_intent(query)
+            shap_exp._ensure_intent_surrogate()
+            surrogate_model = shap_exp._intent_surrogate
 
-        comparison = run_comparison(query, shap_result, lime_result, model=None)
+        comparison = run_comparison(
+            query,
+            shap_result,
+            lime_result,
+            model=surrogate_model,
+            instance=instance,
+            feature_names=feature_names,
+        )
         comparison["shap_detail"] = shap_result
         comparison["lime_detail"] = lime_result
         return comparison

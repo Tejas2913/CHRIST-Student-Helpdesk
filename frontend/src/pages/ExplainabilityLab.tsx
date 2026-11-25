@@ -132,9 +132,10 @@ export default function ExplainabilityLab() {
           });
           if (chatRes.ok) {
             const chatData = await chatRes.json();
-            if (chatData.response) {
-              answerToAttribute = chatData.response;
-              setAttributionAnswer(chatData.response);
+            const liveAns = chatData.answer || chatData.response;
+            if (liveAns) {
+              answerToAttribute = liveAns;
+              setAttributionAnswer(liveAns);
             }
           }
         } catch (e) {
@@ -511,23 +512,28 @@ export default function ExplainabilityLab() {
               </div>
 
               <div className="space-y-3">
-                {(globalMetrics?.retrieval_features && Object.keys(globalMetrics.retrieval_features).length > 0
-                  ? Object.entries(globalMetrics.retrieval_features)
-                  : Object.entries(globalMetrics?.global_importance || {}).filter(([k]) => RETRIEVAL_FEATURE_KEYS.has(k.toLowerCase()))
-                ).map(([feature, val], i) => (
-                  <div key={i} className="space-y-1">
-                    <div className="flex justify-between text-xs font-medium text-gray-700">
-                      <span className="capitalize">{feature.replace(/_/g, ' ')}</span>
-                      <span className="font-mono text-purple-700">{val.toFixed(5)}</span>
+                {(() => {
+                  const entries = (
+                    globalMetrics?.retrieval_features && Object.keys(globalMetrics.retrieval_features).length > 0
+                      ? Object.entries(globalMetrics.retrieval_features)
+                      : Object.entries(globalMetrics?.global_importance || {}).filter(([k]) => RETRIEVAL_FEATURE_KEYS.has(k.toLowerCase()))
+                  );
+                  const maxVal = Math.max(...entries.map(([_, v]) => v), 0.0001);
+                  return entries.map(([feature, val], i) => (
+                    <div key={i} className="space-y-1">
+                      <div className="flex justify-between text-xs font-medium text-gray-700">
+                        <span className="capitalize">{feature.replace(/_/g, ' ')}</span>
+                        <span className="font-mono text-purple-700">{val.toFixed(5)}</span>
+                      </div>
+                      <div className="h-2.5 w-full bg-gray-100 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full transition-all duration-500"
+                          style={{ width: `${Math.max(Math.min((val / maxVal) * 100, 100), 5)}%` }}
+                        />
+                      </div>
                     </div>
-                    <div className="h-2.5 w-full bg-gray-100 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full transition-all duration-500"
-                        style={{ width: `${Math.min(Math.max(val * 150, 4), 100)}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
+                  ));
+                })()}
               </div>
             </div>
 
@@ -544,23 +550,28 @@ export default function ExplainabilityLab() {
               </div>
 
               <div className="space-y-3">
-                {(globalMetrics?.linguistic_tokens && Object.keys(globalMetrics.linguistic_tokens).length > 0
-                  ? Object.entries(globalMetrics.linguistic_tokens)
-                  : Object.entries(globalMetrics?.global_importance || {}).filter(([k]) => !RETRIEVAL_FEATURE_KEYS.has(k.toLowerCase()))
-                ).map(([word, val], i) => (
-                  <div key={i} className="space-y-1">
-                    <div className="flex justify-between text-xs font-medium text-gray-700">
-                      <span className="font-semibold text-emerald-900 capitalize">&quot;{word}&quot;</span>
-                      <span className="font-mono text-emerald-700">{val.toFixed(5)}</span>
+                {(() => {
+                  const entries = (
+                    globalMetrics?.linguistic_tokens && Object.keys(globalMetrics.linguistic_tokens).length > 0
+                      ? Object.entries(globalMetrics.linguistic_tokens)
+                      : Object.entries(globalMetrics?.global_importance || {}).filter(([k]) => !RETRIEVAL_FEATURE_KEYS.has(k.toLowerCase()))
+                  );
+                  const maxVal = Math.max(...entries.map(([_, v]) => v), 0.0001);
+                  return entries.map(([word, val], i) => (
+                    <div key={i} className="space-y-1">
+                      <div className="flex justify-between text-xs font-medium text-gray-700">
+                        <span className="font-semibold text-emerald-900 capitalize">&quot;{word.trim()}&quot;</span>
+                        <span className="font-mono text-emerald-700">{val.toFixed(5)}</span>
+                      </div>
+                      <div className="h-2.5 w-full bg-gray-100 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-all duration-500"
+                          style={{ width: `${Math.max(Math.min((val / maxVal) * 100, 100), 5)}%` }}
+                        />
+                      </div>
                     </div>
-                    <div className="h-2.5 w-full bg-gray-100 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-all duration-500"
-                        style={{ width: `${Math.min(Math.max(val * 200, 4), 100)}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
+                  ));
+                })()}
               </div>
             </div>
           </div>
